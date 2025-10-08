@@ -1,0 +1,231 @@
+.nav {
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 16px;
+}
+
+.nav-left { display: flex; align-items: center; gap: 10px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+.brand img { width: 34px; height: 34px; }
+.brand-title { letter-spacing: .5px; }
+
+.nav-toggle { display: none; }
+.nav-menu { display: flex; align-items: center; gap: 6px; }
+
+.nav-link {
+    padding: .45rem .8rem;
+    border-radius: 10px;
+    font-weight: 700;
+    color: var(--muted);
+}
+.nav-link.active,
+.nav-link:hover {
+    background: rgba(255,255,255,.08);
+    color: var(--text);
+}
+
+.nav-right { display: flex; align-items: center; gap: 6px; }
+
+@media (max-width: 760px) {
+    .nav-toggle { display: inline-flex; }
+    .nav-menu {
+        position: absolute;
+        inset: var(--nav-h) 0 auto 0;
+        background: rgba(14,16,22,.95);
+        display: none;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .nav-menu.open { display: flex; }
+    .nav { position: relative; }
+}
+
+/* Cards */
+.card {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .15s ease, box-shadow .15s ease, border-color .2s ease;
+}
+.card:hover { transform: translateY(-2px); }
+.card-body { padding: 12px 12px 14px; }
+.card-media {
+    background: radial-gradient(60% 60% at 50% 40%, rgba(255,255,255,.08), transparent);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-media img {
+    width: 80%;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+}
+
+/* Heart button */
+.heart { appearance: none; background: none; border: none; cursor: pointer; }
+.heart svg { width: 24px; height: 24px; transition: transform .12s ease; }
+.heart.liked svg { transform: scale(1.15); }
+.heart.liked svg path { fill: var(--accent); }
+
+/* Modal */
+.modal-root {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.modal-root.open { display: flex; }
+.modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.5);
+}
+.modal {
+    position: relative;
+    z-index: 101;
+    width: min(680px, 92vw);
+    background: var(--surface-2);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+}
+
+/* Progressbar */
+.progress {
+    height: 6px;
+    background: rgba(255,255,255,.08);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+.progress-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    animation: progress 10s linear infinite;
+    animation-play-state: running;
+}
+@keyframes progress { from { width: 0% } to { width: 100% } }
+
+/* Detail view */
+.detail {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1.1fr 1fr;
+}
+.detail-hero {
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 18px;
+    padding: 16px;
+}
+.detail-hero img {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    display: block;
+}
+.detail-meta .badge { margin-right: 6px; margin-bottom: 6px; }
+.stats { display: grid; gap: 8px; margin-top: 8px; }
+.stat {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 8px;
+    align-items: center;
+}
+.stat-bar {
+    height: 10px;
+    background: rgba(255,255,255,.08);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.stat-bar > span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    border-radius: 999px;
+    transition: width .6s ease;
+}
+
+/* Search */
+.searchbox { display: grid; gap: 10px; }
+.suggest { position: relative; }
+.suggest-list {
+    position: absolute;
+    inset: auto 0 0 0;
+    transform: translateY(8px);
+    background: var(--surface-2);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 12px;
+    padding: 6px;
+    display: none;
+    max-height: 280px;
+    overflow: auto;
+    box-shadow: var(--shadow);
+    z-index: 5;
+}
+.suggest-list.open { display: block; }
+.suggest-item {
+    padding: .55rem .75rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.suggest-item[aria-selected="true"],
+.suggest-item:hover {
+    background: rgba(255,255,255,.08);
+}
+.suggest-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* Gallery grid */
+.gallery { grid-template-columns: repeat(5, 1fr); }
+@media (max-width: 1100px) { .gallery { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+
+.empty {
+    padding: 18px;
+    background: rgba(255,255,255,.04);
+    border: 1px dashed rgba(255,255,255,.14);
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Type badges */
+.badge.type-normal { background: var(--type-normal); }
+.badge.type-fire { background: var(--type-fire); }
+.badge.type-water { background: var(--type-water); }
+.badge.type-electric { background: var(--type-electric); }
+.badge.type-grass { background: var(--type-grass); }
+.badge.type-ice { background: var(--type-ice); }
+.badge.type-fighting { background: var(--type-fighting); }
+.badge.type-poison { background: var(--type-poison); }
+.badge.type-ground { background: var(--type-ground); }
+.badge.type-flying { background: var(--type-flying); }
+.badge.type-psychic { background: var(--type-psychic); }
+.badge.type-bug { background: var(--type-bug); }
+.badge.type-rock { background: var(--type-rock); }
+.badge.type-ghost { background: var(--type-ghost); }
+.badge.type-dragon { background: var(--type-dragon); }
+.badge.type-dark { background: var(--type-dark); color: #fff; }
+.badge.type-steel { background: var(--type-steel); }
+.badge.type-fairy { background: var(--type-fairy); }

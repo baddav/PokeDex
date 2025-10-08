@@ -1,0 +1,60 @@
+:root {
+    --primary: #2e7d32;
+    --primary-contrast: #ffffff;
+    --accent: #66bb6a;
+    --bg: #0f1115;
+    --surface: #161922;
+    --surface-2: #1f2430;
+    --text: #e6e8ef;
+    --muted: #a9afc3;
+    --ring: #8bc34a;
+    --danger: #ef5350;
+    --warning: #ffb300;
+    --shadow: 0 8px 24px rgba(0,0,0,.25);
+    --radius: 18px;
+    --radius-sm: 12px;
+    --radius-lg: 22px;
+    --nav-h: 64px;
+    --focus: 0 0 0 3px rgba(255,255,255,.25), 0 0 0 6px var(--accent);
+}
+
+/* Themes via Starterwahl */
+.theme-bisasam {
+    --primary: #2e7d32;
+    --accent: #66bb6a;
+    --ring: #8bc34a;
+}
+
+.theme-glumanda {
+    --primary: #d84315;
+    --accent: #ff7043;
+    --ring: #ff8a65;
+}
+
+.theme-shiggy {
+    --primary: #1565c0;
+    --accent: #4fc3f7;
+    --ring: #81d4fa;
+}
+
+/* Type badge colors */
+:root {
+    --type-normal: #A8A77A;
+    --type-fire: #EE8130;
+    --type-water: #6390F0;
+    --type-electric: #F7D02C;
+    --type-grass: #7AC74C;
+    --type-ice: #96D9D6;
+    --type-fighting: #C22E28;
+    --type-poison: #A33EA1;
+    --type-ground: #E2BF65;
+    --type-flying: #A98FF3;
+    --type-psychic: #F95587;
+    --type-bug: #A6B91A;
+    --type-rock: #B6A136;
+    --type-ghost: #735797;
+    --type-dragon: #6F35FC;
+    --type-dark: #705746;
+    --type-steel: #B7B7CE;
+    --type-fairy: #D685AD;
+}

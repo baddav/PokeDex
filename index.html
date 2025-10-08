@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pokedex</title>
+    <meta name="description" content="Pokedex – eine schnelle, hübsche Single-Page-Webapp mit PokeAPI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/variables.css">
+    <link rel="stylesheet" href="./styles/base.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+</head>
+<body>
+<header id="app-header" class="site-header" aria-label="App-Header"></header>
+<main id="app-main" class="site-main" tabindex="-1"></main>
+<div id="modal-root" class="modal-root" aria-live="polite" aria-relevant="additions"></div>
+<div id="toast-root" class="toast-root" aria-live="polite" aria-atomic="true"></div>
+
+<noscript>Bitte JavaScript aktivieren, um die Pokedex-App zu nutzen.</noscript>
+<script type="module" src="./scripts/main.js"></script>
+</body>
+</html>
